@@ -1,0 +1,48 @@
+# RADIX Configuration
+
+app:
+  name: "RADIX"
+  version: "1.0.0"
+  description: "Radar Data Integration & eXtraction Framework"
+
+server:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+
+database:
+  url: "sqlite+aiosqlite:///./radix.db"
+  echo: false
+
+simulation:
+  update_interval: 0.1  # seconds
+  num_targets: 10
+  max_range: 10000  # meters
+  max_speed: 300    # m/s
+
+radars:
+  - id: "RADAR_A"
+    type: "FMCW"
+    location: [0, 0, 10]
+    frequency_ghz: 77
+    bandwidth_mhz: 4000
+    enabled: true
+  
+  - id: "RADAR_B"
+    type: "PULSE_DOPPLER"
+    location: [1000, 1000, 15]
+    frequency_ghz: 10
+    prf_hz: 10000
+    enabled: true
+  
+  - id: "RADAR_C"
+    type: "AESA"
+    location: [2000, -1000, 20]
+    frequency_ghz: 35
+    elements: 1024
+    enabled: true
+
+ml_export:
+  formats: ["parquet", "csv", "npy"]
+  batch_size: 1000
+  window_size: 10
