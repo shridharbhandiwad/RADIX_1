@@ -1,0 +1,19 @@
+.track-list {
+  flex: 1;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.track-list .table-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.no-data {
+  text-align: center;
+  padding: 40px 20px;
+  color: #8899aa;
+  font-style: italic;
+}
